@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>56 Circle Place | 360° Views</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: white;
+            text-align: center;
+            padding: 25px 20px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            margin-top: 7px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .floor-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 11px 22px;
+            border: 1px solid #333;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #eee;
+        }
+
+        button.active {
+            background: #222;
+            color: white;
+        }
+
+        .plan-container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        #floor-plan {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .instructions {
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>56 Circle Place</h1>
+        <div class="subtitle">Interactive 360° Property View</div>
+    </header>
+
+    <div class="floor-buttons">
+
+        <button onclick="changeFloor('basement.png', this)">
+            Basement
+        </button>
+
+        <button class="active"
+                onclick="changeFloor('first-floor.png', this)">
+            First Floor
+        </button>
+
+        <button onclick="changeFloor('second-floor.png', this)">
+            Second Floor
+        </button>
+
+    </div>
+
+    <div class="instructions">
+        Select a floor to view the architectural plan.
+    </div>
+
+    <div class="plan-container">
+        <img
+            id="floor-plan"
+            src="images/first-floor.png"
+            alt="56 Circle Place Floor Plan"
+        >
+    </div>
+
+    <script>
+
+        function changeFloor(imageName, button) {
+
+            document.getElementById("floor-plan").src =
+                "../images/" + imageName;
+
+            document.querySelectorAll(".floor-buttons button")
+                .forEach(function(btn) {
+                    btn.classList.remove("active");
+                });
+
+            button.classList.add("active");
+        }
+
+    </script>
+
+</body>
+</html>
