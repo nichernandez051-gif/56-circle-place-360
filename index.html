@@ -63,6 +63,7 @@
         }
 
         .plan-container {
+            position: relative;
             width: 95%;
             max-width: 1200px;
             margin: 0 auto 40px;
@@ -84,6 +85,23 @@
             font-size: 13px;
             margin-bottom: 15px;
         }
+        .hotspot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: #e53935;
+    cursor: pointer;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+#covered-porch-hotspot {
+    left: 50%;
+    top: 60%;
+}
     </style>
 </head>
 
@@ -121,6 +139,7 @@
             src="images/first-floor.png"
             alt="56 Circle Place Floor Plan"
         >
+         <button class="hotspot" id="covered-porch-hotspot" title="Covered Porch"></button>
     </div>
 
     <script>
